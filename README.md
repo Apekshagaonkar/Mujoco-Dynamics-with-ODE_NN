@@ -38,13 +38,17 @@ pip install -r requirements.txt
 ```
 
 ### Important Files:
-- Main Training File for all models:
+- Main Training File for all models and rendering Hopper Trajectories (DM Control Suite):
   ```
   src/final_project.ipynb
   ```
 - Dataset generation script using Mujoco for Walker -
   ```
   notebooks/Walker_data_collection.ipynb
+  ```
+- For rendering Walker:  (Open Ai Gym environment trajectories) 
+  ```
+  src\Final_Render_Walker_Gym_env.ipynb
   ```
 
 ### Visualizing the trajectories before and after training in Hopper:
