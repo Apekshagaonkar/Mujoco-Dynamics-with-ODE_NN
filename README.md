@@ -37,15 +37,21 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Running different models
+### Important Files:
+- Main Training File for all models: src\final_project.ipynb
+- Dataset generation script using Mujoco for Walker - notebooks\Walker_data_collection.ipynb
 
-### Making the visualization
+### Visualizing the trajectories before and after training in Hopper:
+<p align="center">
+<img align="middle" src="./assets/final_git.gif" width="800" />
+</p>
 
-### License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Acknowledgments
-We express our gratitude to the Mujoco developers and the research community for providing the datasets and tools that made this project possible.
+### References:
+[RNN- VAE ] (https://medium.com/aiguys/variational-recurrent-neural-networks-vrnns-3b836adad399) <br>
+[Latent ODE main repo] (https://github.com/YuliaRubanova/latent_ode/tree/master?tab=readme-ov-file) <br>
+
+
 
 
 

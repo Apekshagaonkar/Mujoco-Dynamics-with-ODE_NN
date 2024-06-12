@@ -10,10 +10,10 @@ from lib.utils import get_dict_template
 import lib.utils as utils
 from torchvision.datasets.utils import download_url
 
-class HopperPhysics(object):
+class WalkerPhysics(object):
 
 	T = 200
-	D = 14
+	D = 18
 
 	n_training_samples = 10000
 
@@ -60,12 +60,12 @@ class HopperPhysics(object):
 
 		os.makedirs(dirname, exist_ok=True)
 
-		env = suite.load('hopper', 'stand')
+		env = suite.load('walker', 'run')
 		physics = env.physics
 
 		for t in range(T):
 			with physics.reset_context():
-				physics.data.qpos[:] = traj[t, :D // 2]
+				physics.data.qpos[:] = traj[t, :D //2 ]
 				physics.data.qvel[:] = traj[t, D // 2:]
 			save_image(
 				physics.render(height=480, width=640, camera_id=0),
@@ -96,7 +96,7 @@ class HopperPhysics(object):
 		except ImportError as e:
 			raise Exception('Deepmind Control Suite is required to generate the dataset.') from e
 
-		env = suite.load('hopper', 'stand')
+		env = suite.load('walker', 'run')
 		physics = env.physics
 
 		# Store the state of the RNG to restore later.
@@ -106,7 +106,6 @@ class HopperPhysics(object):
 		data = np.zeros((n_samples, self.T, self.D))
 		for i in range(n_samples):
 			with physics.reset_context():
-				# x and z positions of the hopper. We want z > 0 for the hopper to stay above ground.
 				physics.data.qpos[:2] = np.random.uniform(0, 0.5, size=2)
 				physics.data.qpos[2:] = np.random.uniform(-2, 2, size=physics.data.qpos[2:].shape)
 				physics.data.qvel[:] = np.random.uniform(-5, 5, size=physics.data.qvel.shape)

@@ -208,6 +208,32 @@ def split_train_test_data_and_time(data, time_steps, train_fraq = 0.8):
 
 	return data_train, data_test, train_time_steps, test_time_steps
 
+def get_complete_data(dataloader):
+    # Fetch all data at once
+    complete_data_list = list(dataloader)
+    
+    # Initialize a dictionary to hold concatenated data
+    batch_dict = get_dict_template()
+    
+    # Concatenate all batches into single tensors
+    batch_dict["observed_data"] = torch.cat([d["observed_data"] for d in complete_data_list], dim=0)
+    batch_dict["observed_tp"] = torch.cat([d["observed_tp"] for d in complete_data_list], dim=0)
+    batch_dict["data_to_predict"] = torch.cat([d["data_to_predict"] for d in complete_data_list], dim=0)
+    batch_dict["tp_to_predict"] = torch.cat([d["tp_to_predict"] for d in complete_data_list], dim=0)
+    
+    if "observed_mask" in complete_data_list[0]:
+        batch_dict["observed_mask"] = torch.cat([d["observed_mask"] for d in complete_data_list], dim=0)
+    
+    if "mask_predicted_data" in complete_data_list[0]:
+        batch_dict["mask_predicted_data"] = torch.cat([d["mask_predicted_data"] for d in complete_data_list], dim=0)
+    
+    if "labels" in complete_data_list[0]:
+        batch_dict["labels"] = torch.cat([d["labels"] for d in complete_data_list], dim=0)
+    
+    batch_dict["mode"] = complete_data_list[0]["mode"]  # Assuming mode is uniform across all batches
+
+    return batch_dict
+
 
 
 def get_next_batch(dataloader):
@@ -245,7 +271,6 @@ def get_next_batch(dataloader):
 
 	batch_dict["mode"] = data_dict["mode"]
 	return batch_dict
-
 
 
 def get_ckpt_model(ckpt_path, model, device):
@@ -400,8 +425,6 @@ def split_data_extrap(data_dict, dataset = ""):
 
 	split_dict["mode"] = "extrap"
 	return split_dict
-
-
 
 
 

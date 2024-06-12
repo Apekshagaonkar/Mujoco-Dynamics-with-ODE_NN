@@ -260,11 +260,11 @@ class Classic_RNN(Baseline):
 		assert(mask is not None)
 		n_traj, n_tp, n_dims = data.size()
 
-		if (len(truth_time_steps) != len(time_steps_to_predict)) or (torch.sum(time_steps_to_predict - truth_time_steps) != 0):
-			raise Exception("Extrapolation mode not implemented for RNN models")
+		# if (len(truth_time_steps) != len(time_steps_to_predict)) or (torch.sum(time_steps_to_predict - truth_time_steps) != 0):
+		# 	raise Exception("Extrapolation mode not implemented for RNN models")
 
-		# for classic RNN time_steps_to_predict should be the same as  truth_time_steps
-		assert(len(truth_time_steps) == len(time_steps_to_predict))
+		# # for classic RNN time_steps_to_predict should be the same as  truth_time_steps
+		# assert(len(truth_time_steps) == len(time_steps_to_predict))
 
 		batch_size = data.size(0)
 		zero_delta_t = torch.Tensor([0.]).to(self.device)

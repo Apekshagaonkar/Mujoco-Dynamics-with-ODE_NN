@@ -48,6 +48,7 @@ def init_fonts(main_font_size = LARGE_SIZE):
 	plt.rc('font', size=main_font_size)          # controls default text sizes
 	plt.rc('axes', titlesize=main_font_size)     # fontsize of the axes title
 	plt.rc('axes', labelsize=main_font_size - 2)    # fontsize of the x and y labels
+
 	plt.rc('xtick', labelsize=main_font_size - 2)    # fontsize of the tick labels
 	plt.rc('ytick', labelsize=main_font_size - 2)    # fontsize of the tick labels
 	plt.rc('legend', fontsize=main_font_size - 2)    # legend fontsize
@@ -105,7 +106,9 @@ def plot_vector_field(ax, odefunc, latent_dim, device):
 	zs = torch.from_numpy(np.stack([x, y], -1).reshape(K * K, 2)).to(device, torch.float32)
 	if latent_dim > 2:
 		# Plots dimensions 0 and 2
-		zs = torch.cat((zs, torch.zeros(K * K, latent_dim-2)), 1)
+		# zs = torch.cat((zs, torch.zeros(K * K, latent_dim-2)), 1)
+		zeros = torch.zeros(K * K, latent_dim-2, device=device)
+		zs=torch.cat((zs, zeros), 1)
 	dydt = odefunc(0, zs)
 	dydt = -dydt.cpu().detach().numpy()
 	if latent_dim > 2:

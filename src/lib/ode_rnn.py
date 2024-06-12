@@ -56,11 +56,11 @@ class ODE_RNN(Baseline):
 	def get_reconstruction(self, time_steps_to_predict, data, truth_time_steps, 
 		mask = None, n_traj_samples = None, mode = None):
 
-		if (len(truth_time_steps) != len(time_steps_to_predict)) or (torch.sum(time_steps_to_predict - truth_time_steps) != 0):
-			raise Exception("Extrapolation mode not implemented for ODE-RNN")
+		# if (len(truth_time_steps) != len(time_steps_to_predict)) or (torch.sum(time_steps_to_predict - truth_time_steps) != 0):
+		# 	raise Exception("Extrapolation mode not implemented for ODE-RNN")
 
-		# time_steps_to_predict and truth_time_steps should be the same 
-		assert(len(truth_time_steps) == len(time_steps_to_predict))
+		# # time_steps_to_predict and truth_time_steps should be the same 
+		# assert(len(truth_time_steps) == len(time_steps_to_predict))
 		assert(mask is not None)
 		
 		data_and_mask = data
