@@ -38,8 +38,14 @@ pip install -r requirements.txt
 ```
 
 ### Important Files:
-- Main Training File for all models: src\final_project.ipynb
-- Dataset generation script using Mujoco for Walker - notebooks\Walker_data_collection.ipynb
+- Main Training File for all models:
+  ```
+  src/final_project.ipynb
+  ```
+- Dataset generation script using Mujoco for Walker -
+  ```
+  notebooks/Walker_data_collection.ipynb
+  ```
 
 ### Visualizing the trajectories before and after training in Hopper:
 <p align="center">
