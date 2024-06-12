@@ -48,8 +48,8 @@ pip install -r requirements.txt
 
 
 ### References:
-[RNN- VAE ] (https://medium.com/aiguys/variational-recurrent-neural-networks-vrnns-3b836adad399) <br>
-[Latent ODE main repo] (https://github.com/YuliaRubanova/latent_ode/tree/master?tab=readme-ov-file) <br>
+[RNN- VAE ](https://medium.com/aiguys/variational-recurrent-neural-networks-vrnns-3b836adad399) <br>
+[Latent ODE main repo](https://github.com/YuliaRubanova/latent_ode/tree/master?tab=readme-ov-file) <br>
 
 
 
