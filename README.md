@@ -48,7 +48,7 @@ pip install -r requirements.txt
   ```
 - For rendering Walker:  (Open Ai Gym environment trajectories) 
   ```
-  src\Final_Render_Walker_Gym_env.ipynb
+  src/Final_Render_Walker_Gym_env.ipynb
   ```
 
 ### Visualizing the trajectories before and after training in Hopper:
