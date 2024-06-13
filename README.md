@@ -6,6 +6,10 @@ This project explores the integration of Ordinary Differential Equations (ODEs) 
 
 ### Dataset
 We use the Mujoco simulation to generate a trajectory dataset, which serves as a rich benchmark for simulating multi-joint dynamics. This dataset was then processed to create subsets with irregular sampling intervals, presenting a challenge for our ODE-integrated neural network models.
+- Dataset for the Hopper and Walker can be found in the below link 
+  ```
+  https://drive.google.com/drive/folders/1Lqv9svglAOKeX3dWkJ88cxsvY4vZkyT9?usp=sharing
+  ```
 
 ## Algorithm
 In this project, we adapted the methodology from this paper to integrate ODE solvers into our neural network architecture, allowing us to effectively handle the irregularly sampled data in the Mujoco dataset. The core idea involves using ODEs to model the continuous dynamics of the system, which provides a flexible framework for dealing with non-uniform time steps in our dataset.
@@ -49,10 +53,7 @@ pip install -r requirements.txt
   ```
   src/Final_Render_Walker_Gym_env.ipynb
   ```
-- Dataset for the Hopper and Walker can be found in the below link 
-  ```
-  https://drive.google.com/drive/folders/1Lqv9svglAOKeX3dWkJ88cxsvY4vZkyT9?usp=sharing
-  ```
+
 
 ### Visualizing the trajectories before and after training in Hopper:
 <p align="center">
